@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.16)
-project(polara LANGUAGES C)
+project(polara LANGUAGES C CXX)
 
-set(CMAKE_CXX_STANDARD 99)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 file(GLOB_RECURSE POLARA_SRC src/*.cpp)
-add_library(polara SHARED ${GGL_SRC})
+add_library(polara SHARED ${POLARA_SRC})
 
 target_include_directories(polara PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/include
