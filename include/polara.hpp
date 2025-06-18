@@ -10,6 +10,9 @@
 #define GL_SILENCE_DEPRECATION
 
 #include <iostream>
+#include <fstream>
+#include <sstream>
+#include <cerrno>
 #include <string>
 
 #include <OpenGL/gl3.h>
@@ -19,5 +22,6 @@
 #include "polara_types.hpp"
 
 #include "core/window.hpp"
+#include "graphics/shader.hpp"
 
 #include "../third_party/glm/glm.hpp"

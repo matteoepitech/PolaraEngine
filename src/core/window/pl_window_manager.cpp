@@ -14,7 +14,7 @@
  * @param height        The height of the window
  * @param title         The title of the window
  */
-PL::core::window::window(int width, int height, const std::string &title)
+PL::core::Window::Window(int width, int height, const std::string &title)
 {
     if (!glfwInit()) {
         throw std::runtime_error("Failed to initialize GLFW");
@@ -34,7 +34,7 @@ PL::core::window::window(int width, int height, const std::string &title)
 /**
  * @brief Window deconstructor.
  */
-PL::core::window::~window(void)
+PL::core::Window::~Window(void)
 {
     glfwDestroyWindow(m_window);
     glfwTerminate();
@@ -44,7 +44,7 @@ PL::core::window::~window(void)
  * @brief Poll all events to get input/sounds/..
  */
 void
-PL::core::window::poll_events(void)
+PL::core::Window::poll_events(void)
 {
     glfwPollEvents();
 }
@@ -55,7 +55,7 @@ PL::core::window::poll_events(void)
  * @return TRUE or FALSE.
  */
 bool
-PL::core::window::should_close() const
+PL::core::Window::should_close() const
 {
     return glfwWindowShouldClose(m_window);
 }

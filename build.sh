@@ -7,6 +7,7 @@ mkdir -p build && cd build
 if [[ "$OS" == "Darwin" ]]; then
     cmake ..
     cmake --build . -- -j$(sysctl -n hw.ncpu)
+    cp -r ../resources/* ~/Desktop/tmp_shaders/
     cp libpolara.dylib ../samples/test/
     printf "\033[32;1mBuild done for MacOS!\033[0m\n"
 

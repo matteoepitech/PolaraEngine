@@ -11,16 +11,38 @@
 
 namespace PL::core
 {
-    class window {
+    class Window {
 
     public:
-        window(int width, int height, const std::string &title);
-        ~window();
+        /**
+         * @brief Window constructor.
+         *
+         * @param width         The width of the window
+         * @param height        The height of the window
+         * @param title         The title of the window
+         */
+        Window(pl_int width, pl_int height, const std::string &title);
 
+        /**
+         * @brief Window deconstructor.
+         */
+        ~Window();
+
+        /**
+         * @brief Poll all events to get input/sounds/..
+         */
         void poll_events();
-        bool should_close() const;
+
+        /**
+         * @brief Should close method. If TRUE there we need to close the program.
+         *
+         * @return TRUE or FALSE.
+         */
+        pl_bool should_close() const;
 
     private:
+        pl_int m_width;
+        pl_int m_height;
         GLFWwindow *m_window;
 
     };

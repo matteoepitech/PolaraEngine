@@ -8,6 +8,7 @@
 #include "../include/polara.hpp"
 
 using namespace PL::core;
+using namespace PL::graphics;
 
 /**
  * @brief Main function
@@ -19,10 +20,10 @@ using namespace PL::core;
  */
 int main(int argc, char *argv[])
 {
-    window win(1280, 720, "Test program");
+    Window win(1280, 720, "Test program");
+    Shader shader("/Users/del/Desktop/tmp_shaders/triangle.vert", "/Users/del/Desktop/tmp_shaders/triangle.frag");
 
     while (win.should_close() == PL_FALSE) {
-        printf("Running");
         win.poll_events();
     }
     return 0;
