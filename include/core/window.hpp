@@ -26,12 +26,12 @@ namespace PL::core
         /**
          * @brief Window deconstructor.
          */
-        ~Window();
+        ~Window(void);
 
         /**
          * @brief Poll all events to get input/sounds/..
          */
-        void poll_events();
+        void poll_events(void);
 
         /**
          * @brief Should close method. If TRUE there we need to close the program.
@@ -39,6 +39,16 @@ namespace PL::core
          * @return TRUE or FALSE.
          */
         pl_bool should_close() const;
+
+        /**
+         * @brief Swap the buffers of the screen.
+         */
+        void render_frame(void) const;
+
+        /**
+         * @brief Clear the frame by clearing the COLOR buffer and DEPTH buffer.
+         */
+        void clear_frame(void) const;
 
     private:
         pl_int m_width;

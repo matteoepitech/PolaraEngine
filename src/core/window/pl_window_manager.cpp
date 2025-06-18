@@ -55,7 +55,25 @@ PL::core::Window::poll_events(void)
  * @return TRUE or FALSE.
  */
 bool
-PL::core::Window::should_close() const
+PL::core::Window::should_close(void) const
 {
-    return glfwWindowShouldClose(m_window);
+    return glfwWindowShouldClose(this->m_window);
+}
+
+/**
+ * @brief Swap the buffers of the screen.
+ */
+void
+PL::core::Window::render_frame(void) const
+{
+    glfwSwapBuffers(this->m_window);
+}
+
+/**
+ * @brief Clear the frame by clearing the COLOR buffer and DEPTH buffer.
+ */
+void
+PL::core::Window::clear_frame(void) const
+{
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
