@@ -18,10 +18,13 @@
 #include <OpenGL/gl3.h>
 #include <GLFW/glfw3.h>
 
+#include "../third_party/glm/glm.hpp"
+
 #include "polara_defines.hpp"
 #include "polara_types.hpp"
 
 #include "core/window.hpp"
 #include "graphics/shader.hpp"
-
-#include "../third_party/glm/glm.hpp"
+#include "graphics/primitive.hpp"
+#include "graphics/mesh.hpp"
+#include "graphics/mesh_factory.hpp"

@@ -11,6 +11,7 @@ add_library(polara SHARED ${POLARA_SRC})
 target_include_directories(polara PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/include
     ${CMAKE_CURRENT_SOURCE_DIR}/third_party/stb
+    ${CMAKE_CURRENT_SOURCE_DIR}/third_party/glm
 )
 
 add_library(glad STATIC

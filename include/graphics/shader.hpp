@@ -1,6 +1,6 @@
 /*
 ** POLARA PROJECT, 2025
-** include/graphics/shaders/shader.hpp
+** include/graphics/shader.hpp
 ** File description:
 ** Shader Header file
 */
@@ -13,6 +13,9 @@ namespace PL::graphics
 {
     class Shader
     {
+        private:
+            pl_id m_id;
+
         public:      
 
             /**
@@ -51,8 +54,5 @@ namespace PL::graphics
              * @param value         The value of it
              */
             void set_float(const std::string &name, pl_float value) const;
-
-        private:
-            pl_id m_id;
     };
 }
