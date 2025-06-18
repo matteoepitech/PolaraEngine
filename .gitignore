@@ -1,0 +1,8 @@
+*.log
+*.o
+*.a
+*.so
+*.dylib
+compile_commands.json
+.cache
+build/
