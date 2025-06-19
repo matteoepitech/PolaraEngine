@@ -93,5 +93,11 @@ PL::graphics::PrimitiveManager::init_cube(void)
 const PL::graphics::PrimitiveManager::m_primitive_data *
 PL::graphics::PrimitiveManager::get_primitive(const std::string &name)
 {
-    return nullptr;
+    auto it = PL::graphics::PrimitiveManager::m_geometries.find("cube");
+
+    if (it != PL::graphics::PrimitiveManager::m_geometries.end()) {
+        return &it->second;
+    } else {
+        return nullptr;
+    }
 }

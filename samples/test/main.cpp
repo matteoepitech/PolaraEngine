@@ -24,11 +24,14 @@ int main(int argc, char *argv[])
     Shader shader("/Users/del/Desktop/tmp_shaders/triangle.vert", "/Users/del/Desktop/tmp_shaders/triangle.frag");
 
     PrimitiveManager::init_cube();
+    auto mesh = MeshFactory::create_cube();
+
     glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+    shader.use();
     while (win.should_close() == PL_FALSE) {
         win.clear_frame();
 
-        shader.use();
+        mesh->render();
 
         win.poll_events();
         win.render_frame();
