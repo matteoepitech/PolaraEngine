@@ -29,6 +29,7 @@ PL::core::Window::Window(int width, int height, const std::string &title)
         throw std::runtime_error("Polara: Failed to create GLFW window");
     }
     glfwMakeContextCurrent(m_window);
+    glEnable(GL_DEPTH_TEST);
 }
 
 /**

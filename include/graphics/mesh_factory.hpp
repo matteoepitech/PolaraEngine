@@ -20,6 +20,6 @@ namespace PL::graphics
              *
              * @return The pointer to the mesh.
              */
-            static std::unique_ptr<Mesh> create_cube(void);
+            static std::unique_ptr<Mesh> create_cube(Shader shader);
     };
 }

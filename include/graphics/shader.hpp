@@ -27,9 +27,16 @@ namespace PL::graphics
             Shader(const std::string &vertex_path, const std::string &fragment_path);
 
             /**
+             * @brief Get the ID program of the shader.
+             *
+             * @return The ID program.
+             */
+            pl_id get_id(void) const;
+
+            /**
              * @brief Use the shader.
              */
-            void use(void);
+            void use(void) const;
 
             /**
              * @brief Set a bool uniform parameter.

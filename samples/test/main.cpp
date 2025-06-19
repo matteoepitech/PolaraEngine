@@ -22,16 +22,15 @@ int main(int argc, char *argv[])
 {
     Window win(1280, 720, "Test program");
     Shader shader("/Users/del/Desktop/tmp_shaders/triangle.vert", "/Users/del/Desktop/tmp_shaders/triangle.frag");
+    auto mesh = MeshFactory::create_cube(shader);
 
-    PrimitiveManager::init_cube();
-    auto mesh = MeshFactory::create_cube();
-
+    mesh->set_transform(glm::rotate(mesh->get_transform(), glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f)));
     glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
-    shader.use();
     while (win.should_close() == PL_FALSE) {
         win.clear_frame();
 
         mesh->render();
+        mesh->set_transform(glm::rotate(mesh->get_transform(), (float) glfwGetTime() * glm::radians(0.1f), glm::vec3(0.5f, 1.0f, 0.0f)));
 
         win.poll_events();
         win.render_frame();

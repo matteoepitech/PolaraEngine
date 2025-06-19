@@ -16,6 +16,7 @@ namespace PL::graphics
         private:
             glm::mat4 m_transform = glm::mat4(1.0f);
             std::string m_mesh_name;
+            Shader m_shader;
             
         public:
 
@@ -23,8 +24,9 @@ namespace PL::graphics
              * @brief Mesh constructor.
              *
              * @param name              The name of the mesh
+             * @param shader            The shader of the mesh
              */
-            Mesh(const std::string &name) : m_mesh_name(name) {}
+            Mesh(const std::string &name, Shader &shader) : m_mesh_name(name), m_shader(shader) {}
             
             /**
              * @brief Render the mesh on the screen.

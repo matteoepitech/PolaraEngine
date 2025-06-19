@@ -97,10 +97,21 @@ PL::graphics::Shader::Shader(const std::string &vertex_path, const std::string &
 }
 
 /**
+ * @brief Get the ID program of the shader.
+ *
+ * @return The ID program.
+ */
+pl_id
+PL::graphics::Shader::get_id(void) const
+{
+    return this->m_id;
+}
+
+/**
  * @brief Use the shader. Using the ID of the program.
  */
 void
-PL::graphics::Shader::use(void)
+PL::graphics::Shader::use(void) const
 {
     glUseProgram(this->m_id);
 }
