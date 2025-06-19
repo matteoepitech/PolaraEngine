@@ -70,8 +70,8 @@ PL::graphics::Shader::Shader(const std::string &vertex_path, const std::string &
     std::ifstream frag_file;
     std::stringstream vert_stream;
     std::stringstream frag_stream;
-    const char* frag_code = nullptr;
-    const char* vert_code = nullptr;
+    const char *frag_code = nullptr;
+    const char *vert_code = nullptr;
     
     vert_file.exceptions (std::ifstream::failbit | std::ifstream::badbit);
     frag_file.exceptions (std::ifstream::failbit | std::ifstream::badbit);

@@ -17,6 +17,7 @@ namespace PL::graphics
             glm::mat4 m_transform = glm::mat4(1.0f);
             std::string m_mesh_name;
             Shader m_shader;
+            std::unique_ptr<Texture> m_texture = nullptr;
             
         public:
 
@@ -47,5 +48,12 @@ namespace PL::graphics
              * @return The transform mat4.
              */
             const glm::mat4 &get_transform(void) const;
+
+            /**
+             * @brief Set the texture of the mesh.
+             *
+             * @param texture
+             */
+            void set_texture(Texture texture);
     };
 }

@@ -21,6 +21,7 @@ PL::graphics::Mesh::render() const
     projection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
     if (primitive != nullptr) {
         this->m_shader.use();
+        this->m_texture->use();
         glUniformMatrix4fv(glGetUniformLocation(this->m_shader.get_id(), "u_model"), 1, GL_FALSE, glm::value_ptr(this->m_transform));
         glUniformMatrix4fv(glGetUniformLocation(this->m_shader.get_id(), "u_projection"), 1, GL_FALSE, glm::value_ptr(projection));
         glUniformMatrix4fv(glGetUniformLocation(this->m_shader.get_id(), "u_view"), 1, GL_FALSE, glm::value_ptr(view));
@@ -50,4 +51,15 @@ const glm::mat4 &
 PL::graphics::Mesh::get_transform() const
 {
     return this->m_transform;
+}
+
+/**
+ * @brief Set the texture of the mesh.
+ *
+ * @param texture
+ */
+void
+PL::graphics::Mesh::set_texture(PL::graphics::Texture texture)
+{
+    this->m_texture = std::make_unique<PL::graphics::Texture>(texture);
 }

@@ -27,6 +27,7 @@
 
 #include "core/window.hpp"
 #include "graphics/shader.hpp"
+#include "graphics/texture.hpp"
 #include "graphics/primitive.hpp"
 #include "graphics/mesh.hpp"
 #include "graphics/mesh_factory.hpp"
