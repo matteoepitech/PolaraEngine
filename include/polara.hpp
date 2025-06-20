@@ -26,6 +26,7 @@
 #include "polara_types.hpp"
 
 #include "core/window.hpp"
+#include "core/camera.hpp"
 #include "graphics/shader.hpp"
 #include "graphics/texture.hpp"
 #include "graphics/primitive.hpp"

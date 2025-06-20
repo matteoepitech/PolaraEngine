@@ -50,6 +50,13 @@ namespace PL::core
          */
         void clear_frame(void) const;
 
+        /**
+         * @brief Get the window GLFW pointer.
+         *
+         * @return 
+         */
+        GLFWwindow *get_window(void);
+
     private:
         pl_int m_width;
         pl_int m_height;

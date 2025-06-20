@@ -78,3 +78,14 @@ PL::core::Window::clear_frame(void) const
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
+
+/**
+ * @brief Get the window GLFW pointer.
+ *
+ * @return 
+ */
+GLFWwindow *
+PL::core::Window::get_window(void)
+{
+    return this->m_window;
+}
