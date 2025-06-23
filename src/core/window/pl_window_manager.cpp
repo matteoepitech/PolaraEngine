@@ -5,7 +5,6 @@
 ** Polara window manager
 */
 
-#include "input/mouse.hpp"
 #include "polara.hpp"
 
 /**
@@ -88,7 +87,7 @@ PL::core::Window::clear_frame(void) const
  * @return 
  */
 GLFWwindow *
-PL::core::Window::get_window(void)
+PL::core::Window::get_window(void) const
 {
     return this->m_window;
 }

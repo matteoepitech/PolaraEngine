@@ -89,6 +89,21 @@ namespace PL::core
          * @brief Update camera front vector based on yaw and pitch.
          */
         static void update_front_vector(void);
+
+        /**
+         * @brief Is the cursor grabbed or not?
+         *
+         * @return PL_TRUE or PL_FALSE.
+         */
+        static pl_bool get_is_cursor_grab(void);
+
+        /**
+         * @brief Set the cursor grab or not value.
+         *        @SHOULD NOT BE USED
+         *
+         * @param grab
+         */
+        static void __set_cursor_grab(pl_bool grab);
         
     private:
         static glm::vec3 m_camera_pos;
@@ -96,6 +111,7 @@ namespace PL::core
         static glm::vec3 m_camera_up;
         static pl_float m_pitch;
         static pl_float m_yaw;
+        static pl_bool m_is_cursor_grab;
     };
 
 } // namespace PL

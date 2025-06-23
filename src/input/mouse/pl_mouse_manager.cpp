@@ -5,6 +5,7 @@
 ** Polara mouse movement manager
 */
 
+#include "core/camera.hpp"
 #include "polara.hpp"
 
 /**
@@ -25,7 +26,9 @@ PL::input::pl_mouse_callback(GLFWwindow *window, pl_double x_pos, pl_double y_po
     float sensitivity = 0.1f;
     float yaw = PL::core::Camera::get_yaw();
     float pitch = PL::core::Camera::get_pitch();
-    
+   
+    if (PL::core::Camera::get_is_cursor_grab() == PL_TRUE)
+        return;
     if (firstMouse == PL_TRUE)
     {
         lastX = x_pos;
@@ -46,4 +49,16 @@ PL::input::pl_mouse_callback(GLFWwindow *window, pl_double x_pos, pl_double y_po
     PL::core::Camera::set_yaw(yaw);
     PL::core::Camera::set_pitch(pitch);
     PL::core::Camera::update_front_vector();
+}
+
+/**
+ * @brief Ungrab the mouse and put it available to the user for UI for example.
+ *
+ * @param window        The window
+ */
+void
+PL::input::pl_ungrab_mouse(const PL::core::Window &window)
+{
+    glfwSetInputMode(window.get_window(), GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+    PL::core::Camera::__set_cursor_grab(PL_TRUE);
 }

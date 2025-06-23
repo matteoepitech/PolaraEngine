@@ -55,7 +55,7 @@ namespace PL::core
          *
          * @return 
          */
-        GLFWwindow *get_window(void);
+        GLFWwindow *get_window(void) const;
 
     private:
         pl_int m_width;

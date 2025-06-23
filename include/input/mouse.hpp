@@ -21,4 +21,11 @@ namespace PL::input
  */
 void pl_mouse_callback(GLFWwindow *window, pl_double x_pos, pl_double y_pos);
 
+/**
+ * @brief Ungrab the mouse and put it available to the user for UI for example.
+ *
+ * @param window        The window
+ */
+void pl_ungrab_mouse(const PL::core::Window &window);
+
 } // namespace PL

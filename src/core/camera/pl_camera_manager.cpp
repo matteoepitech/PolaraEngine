@@ -12,6 +12,7 @@ glm::vec3 PL::core::Camera::m_camera_front = glm::vec3(0.0f, 0.0f, -1.0f);
 glm::vec3 PL::core::Camera::m_camera_up = glm::vec3(0.0f, 1.0f, 0.0f);
 pl_float PL::core::Camera::m_yaw = -90.0f;
 pl_float PL::core::Camera::m_pitch = 0.0f;
+pl_bool PL::core::Camera::m_is_cursor_grab = PL_FALSE;
 
 /**
  * @brief Init the camera.
@@ -140,4 +141,27 @@ PL::core::Camera::update_front_vector(void)
     front.y = sin(glm::radians(m_pitch));
     front.z = sin(glm::radians(m_yaw)) * cos(glm::radians(m_pitch));
     m_camera_front = glm::normalize(front);
+}
+
+/**
+ * @brief Is the cursor grabbed or not?
+ *
+ * @return PL_TRUE or PL_FALSE.
+ */
+pl_bool
+PL::core::Camera::get_is_cursor_grab(void)
+{
+    return m_is_cursor_grab;
+}
+
+/**
+ * @brief Set the cursor grab or not value.
+ *        @SHOULD NOT BE USED
+ *
+ * @param grab
+ */
+void
+PL::core::Camera::__set_cursor_grab(pl_bool grab)
+{
+    m_is_cursor_grab = grab;
 }

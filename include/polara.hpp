@@ -21,6 +21,7 @@
 #include "../third_party/glm/glm.hpp"
 #include "../third_party/glm/gtc/matrix_transform.hpp"
 #include "../third_party/glm/gtc/type_ptr.hpp"
+#include "../third_party/glm/gtc/noise.hpp"
 
 #include "polara_defines.hpp"
 #include "polara_types.hpp"
