@@ -17,6 +17,13 @@ const int WINDOW_HEIGHT = 720;
 const char* WINDOW_TITLE = "Test program";
 const float MOVEMENT_SPEED = 5.0f;
 
+const int TERRAIN_WIDTH = 150;
+const int TERRAIN_DEPTH = 150;
+const float NOISE_SCALE = 0.1f;
+const float HEIGHT_MULTIPLIER = 10.0f;
+
+std::vector<glm::vec3> CUBE_POSITIONS;
+
 /**
  * @brief Handles camera movement and input
  */
@@ -77,6 +84,51 @@ public:
 };
 
 /**
+ * @brief Renders multiple cubes in a procedurally generated terrain
+ */
+class CubeRenderer {
+
+private:
+    std::unique_ptr<Mesh> mesh;
+
+public:
+    /**
+     * @brief Construct a new Cube Renderer
+     *
+     * @param shader Reference to shader
+     * @param texture Reference to texture
+     */
+    CubeRenderer(const Shader& shader, const Texture& texture)
+    {
+        mesh = MeshFactory::create_cube(shader);
+        mesh->set_texture(texture);
+
+        for (int x = 0; x < TERRAIN_WIDTH; ++x) {
+            for (int z = 0; z < TERRAIN_DEPTH; ++z) {
+                float height = glm::simplex(glm::vec2(x * NOISE_SCALE, z * NOISE_SCALE));
+                height = glm::clamp(height, -1.0f, 1.0f) * HEIGHT_MULTIPLIER;
+
+                for (int y = 0; y < static_cast<int>(height); ++y) {
+                    CUBE_POSITIONS.push_back(glm::vec3(x, y, z));
+                }
+            }
+        }
+    }
+
+    /**
+     * @brief Render all cubes
+     */
+    void render_cubes() const
+    {
+        for (const auto& pos : CUBE_POSITIONS) {
+            glm::mat4 model = glm::translate(glm::mat4(1.0f), pos);
+            mesh->set_transform(model);
+            mesh->render();
+        }
+    }
+};
+
+/**
  * @brief Main program entry
  *
  * @param argc Arg count
@@ -91,18 +143,14 @@ int main(int argc, char *argv[])
                       "/Users/del/Desktop/tmp_shaders/triangle.frag");
         Texture grass("/Users/del/Desktop/tmp_shaders/grass.jpg");
 
-        auto cube = MeshFactory::create_cube(shader);
-        glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
-        cube->set_transform(model);
-        cube->set_texture(grass);
-
         CameraController camera_controller;
+        CubeRenderer cube_renderer(shader, grass);
 
         while (win.should_close() == PL_FALSE) {
             win.clear_frame();
 
             camera_controller.update(win);
-            cube->render();
+            cube_renderer.render_cubes();
 
             win.poll_events();
             win.render_frame();

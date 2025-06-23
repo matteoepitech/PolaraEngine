@@ -9,6 +9,7 @@ if [[ "$OS" == "Darwin" ]]; then
     cmake --build . -- -j$(sysctl -n hw.ncpu)
     cp -r ../resources/* ~/Desktop/tmp_shaders/
     cp libpolara.dylib ../samples/test/
+    cp libpolara.dylib ../samples/minecraft-like/
     printf "\033[32;1mBuild done for MacOS!\033[0m\n"
 
 # Linux

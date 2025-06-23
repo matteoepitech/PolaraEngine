@@ -30,6 +30,8 @@ PL::core::Window::Window(int width, int height, const std::string &title)
     }
     glfwMakeContextCurrent(m_window);
     glEnable(GL_DEPTH_TEST);
+    glEnable(GL_CULL_FACE);
+    glClearColor(0.1f, 0.1f, 0.1f, 0.1f);
     glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     glfwSetCursorPosCallback(m_window, PL::input::pl_mouse_callback);
 }
