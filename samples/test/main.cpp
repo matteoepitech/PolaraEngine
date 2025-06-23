@@ -5,6 +5,7 @@
 ** Minecraft like
 */
 
+#include "core/core.hpp"
 #include "polara.hpp"
 
 using namespace PL::core;
@@ -14,7 +15,7 @@ const int WINDOW_WIDTH = 1280;
 const int WINDOW_HEIGHT = 720;
 const char* WINDOW_TITLE = "Test program";
 const int NUM_CUBES = 10;
-const float MOVEMENT_SPEED = 0.05f;
+const float MOVEMENT_SPEED = 2.5f;
 const float ROTATION_SPEED = 20.0f;
 
 const std::array<glm::vec3, NUM_CUBES> CUBE_POSITIONS = {{
@@ -43,6 +44,7 @@ public:
     
     void update(GLFWwindow* window)
     {
+        speed = MOVEMENT_SPEED * pl_get_delta_time();
         glm::vec3 movement(0.0f);
         if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
             movement.z -= speed;

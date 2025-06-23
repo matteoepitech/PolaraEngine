@@ -17,9 +17,14 @@ PL::graphics::Mesh::render() const
     glm::mat4 projection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
     glm::vec3 camera_pos = core::Camera::get_position();
     glm::vec3 camera_up = core::Camera::get_up();
-    glm::vec3 camera_front = core::Camera::get_front();
+    glm::vec3 camera_front = core::Camera::get_front();glm::vec3 direction;
+    float yaw = -90.0f;
+    float pitch = 0.0f;
     glm::mat4 view;
 
+    direction.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
+    direction.y = sin(glm::radians(pitch));
+    direction.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
     view = glm::lookAt(camera_pos, camera_pos + camera_front, camera_up);
     if (primitive != nullptr) {
         this->m_shader.use();

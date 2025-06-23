@@ -5,6 +5,7 @@
 ** Polara window manager
 */
 
+#include "input/mouse.hpp"
 #include "polara.hpp"
 
 /**
@@ -30,6 +31,8 @@ PL::core::Window::Window(int width, int height, const std::string &title)
     }
     glfwMakeContextCurrent(m_window);
     glEnable(GL_DEPTH_TEST);
+    glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    glfwSetCursorPosCallback(m_window, PL::input::pl_mouse_callback);
 }
 
 /**

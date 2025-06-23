@@ -25,8 +25,10 @@
 #include "polara_defines.hpp"
 #include "polara_types.hpp"
 
+#include "core/core.hpp"
 #include "core/window.hpp"
 #include "core/camera.hpp"
+#include "input/mouse.hpp"
 #include "graphics/shader.hpp"
 #include "graphics/texture.hpp"
 #include "graphics/primitive.hpp"

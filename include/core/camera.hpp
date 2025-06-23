@@ -49,11 +49,53 @@ namespace PL::core
          * @return Current camera up vector.
          */
         static glm::vec3 get_up(void);
+
+        /**
+         * @brief Set camera front vector.
+         *
+         * @param front              New camera front vector
+         */
+        static void set_front(glm::vec3 front);
+        
+        /**
+         * @brief Get camera yaw angle.
+         *
+         * @return Current yaw angle in degrees.
+         */
+        static pl_float get_yaw(void);
+        
+        /**
+         * @brief Set camera yaw angle.
+         *
+         * @param yaw              New yaw angle in degrees
+         */
+        static void set_yaw(pl_float yaw);
+        
+        /**
+         * @brief Get camera pitch angle.
+         *
+         * @return Current pitch angle in degrees.
+         */
+        static pl_float get_pitch(void);
+        
+        /**
+         * @brief Set camera pitch angle.
+         *
+         * @param pitch              New pitch angle in degrees
+         */
+        static void set_pitch(pl_float pitch);
+        
+        /**
+         * @brief Update camera front vector based on yaw and pitch.
+         */
+        static void update_front_vector(void);
         
     private:
         static glm::vec3 m_camera_pos;
         static glm::vec3 m_camera_front;
         static glm::vec3 m_camera_up;
+        static pl_float m_pitch;
+        static pl_float m_yaw;
     };
 
 } // namespace PL
