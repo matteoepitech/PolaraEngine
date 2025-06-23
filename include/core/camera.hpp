@@ -104,11 +104,19 @@ namespace PL::core
          * @param grab
          */
         static void __set_cursor_grab(pl_bool grab);
+
+        /**
+         * @brief Get the projection matrice of the camera.
+         *
+         * @return The projection matrice.
+         */
+        static glm::mat4 get_projection(void);
         
     private:
         static glm::vec3 m_camera_pos;
         static glm::vec3 m_camera_front;
         static glm::vec3 m_camera_up;
+        static glm::mat4 m_projection;
         static pl_float m_pitch;
         static pl_float m_yaw;
         static pl_bool m_is_cursor_grab;

@@ -10,6 +10,7 @@
 glm::vec3 PL::core::Camera::m_camera_pos = glm::vec3(0.0f, 0.0f, 3.0f);
 glm::vec3 PL::core::Camera::m_camera_front = glm::vec3(0.0f, 0.0f, -1.0f);
 glm::vec3 PL::core::Camera::m_camera_up = glm::vec3(0.0f, 1.0f, 0.0f);
+glm::mat4 PL::core::Camera::m_projection = glm::perspective(glm::radians(90.0f), 800.0f / 600.0f, 0.1f, 100.0f);
 pl_float PL::core::Camera::m_yaw = -90.0f;
 pl_float PL::core::Camera::m_pitch = 0.0f;
 pl_bool PL::core::Camera::m_is_cursor_grab = PL_FALSE;
@@ -164,4 +165,14 @@ void
 PL::core::Camera::__set_cursor_grab(pl_bool grab)
 {
     m_is_cursor_grab = grab;
+}
+
+/**
+ * @brief Get the projection matrice of the camera.
+ *
+ * @return The projection matrice.
+ */
+glm::mat4 PL::core::Camera::get_projection(void)
+{
+    return m_projection;
 }

@@ -91,7 +91,7 @@ int main(int argc, char *argv[])
                       "/Users/del/Desktop/tmp_shaders/triangle.frag");
         Texture grass("/Users/del/Desktop/tmp_shaders/grass.jpg");
 
-        auto cube = MeshFactory::create_cube(shader);
+        auto cube = MeshFactory::create_sphere(shader);
         glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
         cube->set_transform(model);
         cube->set_texture(grass);

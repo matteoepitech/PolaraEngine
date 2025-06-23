@@ -30,3 +30,51 @@ PL::graphics::MeshFactory::create_cube(PL::graphics::Shader shader)
     mesh->set_transform(glm::mat4(1.0f));
     return mesh;
 }
+
+/**
+ * @brief Create a cone by using the primitive.
+ *
+ * @return The pointer to the mesh.
+ */
+std::unique_ptr<PL::graphics::Mesh>
+PL::graphics::MeshFactory::create_cone(PL::graphics::Shader shader)
+{
+    std::unique_ptr<PL::graphics::Mesh> mesh = nullptr;
+
+    if (PrimitiveManager::get_primitive("cone") == nullptr) {
+        std::cout << "[PL] Init of a cone!" << std::endl;
+        PrimitiveManager::init_cone();
+    }
+    std::cout << "[PL] Creating a cone!" << std::endl;
+    mesh = std::make_unique<Mesh>("cone", shader);
+    if (mesh == nullptr) {
+        std::cerr << "[PL] Cannot create a cone!" << std::endl;
+        return nullptr;
+    }
+    mesh->set_transform(glm::mat4(1.0f));
+    return mesh;
+}
+
+/**
+ * @brief Create a sphere by using the primitive.
+ *
+ * @return The pointer to the mesh.
+ */
+std::unique_ptr<PL::graphics::Mesh>
+PL::graphics::MeshFactory::create_sphere(PL::graphics::Shader shader)
+{
+    std::unique_ptr<PL::graphics::Mesh> mesh = nullptr;
+
+    if (PrimitiveManager::get_primitive("sphere") == nullptr) {
+        std::cout << "[PL] Init of a sphere!" << std::endl;
+        PrimitiveManager::init_sphere();
+    }
+    std::cout << "[PL] Creating a sphere!" << std::endl;
+    mesh = std::make_unique<Mesh>("sphere", shader);
+    if (mesh == nullptr) {
+        std::cerr << "[PL] Cannot create a sphere!" << std::endl;
+        return nullptr;
+    }
+    mesh->set_transform(glm::mat4(1.0f));
+    return mesh;
+}

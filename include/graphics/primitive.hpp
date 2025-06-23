@@ -31,6 +31,20 @@ namespace PL::graphics
              * @return PL_TRUE if everything worked. PL_FALSE otherwise.
              */
             static pl_bool init_cube(void);
+            
+            /**
+             * @brief Init the cone.
+             *
+             * @return PL_TRUE if everything worked. PL_FALSE otherwise.
+             */
+            static pl_bool init_cone(void);
+            
+            /**
+             * @brief Init the sphere.
+             *
+             * @return PL_TRUE if everything worked. PL_FALSE otherwise.
+             */
+            static pl_bool init_sphere(void);
 
             /**
              * @brief Get the primitive data of a primitive.

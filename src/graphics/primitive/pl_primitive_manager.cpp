@@ -22,7 +22,7 @@ std::unordered_map<std::string, PL::graphics::PrimitiveManager::m_primitive_data
 const PL::graphics::PrimitiveManager::m_primitive_data *
 PL::graphics::PrimitiveManager::get_primitive(const std::string &name)
 {
-    auto it = PL::graphics::PrimitiveManager::m_geometries.find("cube");
+    auto it = PL::graphics::PrimitiveManager::m_geometries.find(name);
 
     if (it != PL::graphics::PrimitiveManager::m_geometries.end()) {
         return &it->second;
